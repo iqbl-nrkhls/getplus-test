@@ -12,13 +12,26 @@ export async function getArticles(page = 1, search) {
 }
 
 export async function getArticle(id) {
-  return await fetch(
-    `${API_URL}/articles/${id}`
-  ).then((response) => response.json());
+  return await fetch(`${API_URL}/articles/${id}`).then((response) =>
+    response.json()
+  );
 }
 
 export async function getComments(id) {
-  return await fetch(
-    `${API_URL}/articles/${id}/comments`
-  ).then((response) => response.json());
+  return await fetch(`${API_URL}/articles/${id}/comments`).then((response) =>
+    response.json()
+  );
+}
+
+export async function sendComment(id, { user = "Anonymous", comment } = {}) {
+  return await fetch(`${API_URL}/articles/${id}/comments`, {
+    method: "POST",
+    body: JSON.stringify({ user, comment }),
+  }).then((response) => response.json());
+}
+
+export async function deleteComment(id, commentId) {
+  return await fetch(`${API_URL}/articles/${id}/comments/${commentId}`, {
+    method: "DELETE",
+  }).then((response) => response.json());
 }

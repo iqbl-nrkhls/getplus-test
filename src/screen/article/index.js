@@ -3,7 +3,7 @@ import { getArticle } from "models/articles";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SectionArticle } from "./SectionArticle";
-// import { SectionComment } from "./SectionComment";
+import { SectionComment } from "./SectionComment";
 
 export default function ArticleScreen() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ export default function ArticleScreen() {
       {article ? (
         <>
           <SectionArticle article={article} />
-          {/* <SectionComment articleId={article.id} /> */}
+          <SectionComment articleId={article.id} />
         </>
       ): (
         <div className="mx-4 text-center my-20">
