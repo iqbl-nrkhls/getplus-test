@@ -1,10 +1,11 @@
 import Layout from "layout";
 import { SectionArticles } from "./SectionArticles";
+import { SectionBanner } from "./SectionBanner";
 
 export default function HomeScreen() {
   return (
     <Layout>
-      <p>Banner</p>
+      <SectionBanner />
 
       <SectionArticles />
     </Layout>

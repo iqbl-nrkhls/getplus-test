@@ -35,3 +35,9 @@ export async function deleteComment(id, commentId) {
     method: "DELETE",
   }).then((response) => response.json());
 }
+
+export async function getBanners() {
+  return await fetch(`${API_URL}/banners`).then((response) =>
+    response.json()
+  );
+}
